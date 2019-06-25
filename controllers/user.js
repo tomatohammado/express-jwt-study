@@ -7,6 +7,9 @@ module.exports = {
   index: (req, res) => {
     User.find({}).then(users => res.json(users));
   },
+  show: (req, res) => {
+    User.findById(req.params.id).then(user => res.json(user));
+  },
   signUp: (req, res) => {
     if (req.body.email && req.body.password) {
       let newUser = {
